@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portofolio personal HAMAS DHANI">
+<title>Hamas Muhammad Dhani — Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#07131b;
+  --panel:#09151d;
+  --panel2:#10232d;
+  --glass:rgba(16,34,44,.78);
+  --line:rgba(207,232,242,.17);
+  --text:#f4f8fa;
+  --muted:#aebdc5;
+  --accent:#c6e0ea;
+  --shadow:0 25px 70px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 20% 10%,#315564 0,transparent 28%),
+    radial-gradient(circle at 85% 60%,#173746 0,transparent 30%),
+    linear-gradient(145deg,#102a37,#071117 65%,#0d2029);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;inset:-10%;
+  background:radial-gradient(circle,rgba(211,237,245,.12),transparent 42%);
+  filter:blur(45px);
+  pointer-events:none;
+  animation:ambient 8s ease-in-out infinite alternate;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+.page{
+  width:min(1180px,94%);
+  margin:auto;
+  position:relative;
+  padding:28px 0 70px;
+}
+
+.topbar{
+  position:sticky;top:18px;z-index:50;
+  width:min(920px,92%);
+  margin:0 auto 30px;
+  height:68px;
+  display:flex;align-items:center;gap:28px;
+  padding:0 25px;
+  border:1px solid var(--line);
+  border-radius:36px;
+  background:rgba(9,20,27,.82);
+  backdrop-filter:blur(18px);
+  box-shadow:var(--shadow);
+}
+.menu-btn{
+  width:38px;height:38px;border:0;background:transparent;color:#dbe8ed;
+  font-size:24px;cursor:pointer;display:grid;place-items:center;
+}
+.nav{display:flex;gap:25px;align-items:center;font-size:14px;font-weight:600;color:#c1ccd1}
+.nav a{transition:.25s}
+.nav a:hover{color:#fff;transform:translateY(-2px)}
+.nav a.active{color:#fff}
+
+.portfolio-label{
+  width:max-content;margin:auto;
+  padding:10px 55px;
+  border-radius:22px;
+  background:linear-gradient(90deg,#162b36,#0b171e);
+  border:1px solid var(--line);
+  letter-spacing:8px;
+  font-weight:800;font-size:14px;
+  color:#dce8ec;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.hero{
+  position:relative;
+  min-height:620px;
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:170px 1fr;
+  border-radius:46px;
+  overflow:visible;
+}
+.hero-main{
+  min-height:620px;
+  grid-column:1/-1;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:45px;
+  background:linear-gradient(120deg,#05090b 20%,#07131a 55%,#0b1d27);
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+.hero-main::after{
+  content:"";
+  position:absolute;inset:auto -10% -35% 25%;
+  height:70%;
+  background:radial-gradient(circle,rgba(89,138,157,.25),transparent 60%);
+  filter:blur(20px);
+}
+.side-profile{
+  position:absolute;z-index:5;left:22px;top:40px;
+  width:140px;min-height:500px;
+  padding:22px 16px;
+  border-radius:36px;
+  background:rgba(5,13,17,.92);
+  border:1px solid rgba(255,255,255,.07);
+  text-align:center;
+}
+.avatar{
+  width:94px;height:94px;margin:0 auto 20px;
+  border-radius:50%;
+  padding:6px;
+  border:1px solid #91aeb9;
+  background:#0a141a;
+}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.socials{display:flex;justify-content:center;gap:13px;font-weight:800;font-size:22px;margin:15px 0}
+.side-name{font-size:13px;color:#bdcbd1}
+.post{margin-top:20px;color:#cbd9de;font-size:13px}
+.post span{display:block;font-size:25px;margin-bottom:5px}
+
+.hero-content{
+  position:absolute;z-index:4;
+  left:205px;right:50px;top:92px;
+  display:grid;grid-template-columns:minmax(260px,1fr) minmax(330px,1fr);
+  gap:35px;align-items:center;
+}
+.hero-photo{
+  height:520px;display:flex;align-items:end;justify-content:center;
+  position:relative;
+}
+.hero-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center 17%;
+  border-radius:38px 38px 0 0;
+  mix-blend-mode:screen;
+  filter:contrast(1.05) brightness(.92) saturate(.85);
+  mask-image:linear-gradient(to bottom,black 65%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom,black 65%,transparent 100%);
+}
+.hero-copy{align-self:start;padding-top:28px}
+.eyebrow{font-size:13px;color:#9db0b8;margin-bottom:10px}
+.hero-copy h1{
+  font-family:Oswald,Impact,sans-serif;
+  font-size:clamp(45px,6vw,78px);
+  line-height:.9;
+  letter-spacing:-2px;
+  margin-bottom:22px;
+}
+.hero-copy p{max-width:460px;color:#d2dde1;line-height:1.7;font-size:14px}
+.dots{position:absolute;right:30px;top:30px;display:flex;gap:13px}
+.dot{width:20px;height:20px;border-radius:50%;background:#7c9aa7}
+
+.glass{
+  background:linear-gradient(135deg,rgba(22,43,53,.88),rgba(7,18,24,.9));
+  border:1px solid rgba(210,237,244,.12);
+  box-shadow:0 20px 55px rgba(0,0,0,.35);
+  backdrop-filter:blur(15px);
+}
+
+.toolbar{
+  position:absolute;z-index:9;left:0;top:325px;
+  width:64px;padding:18px 0;border-radius:28px;
+  display:flex;flex-direction:column;align-items:center;gap:24px;
+  background:rgba(13,29,38,.86);border:1px solid var(--line);
+}
+.tool{font-size:24px;color:#d5e3e7;opacity:.85;transition:.25s;cursor:pointer}
+.tool:hover{transform:scale(1.2);opacity:1}
+
+.quick{
+  position:absolute;z-index:8;right:90px;bottom:55px;
+  display:flex;gap:8px;padding:15px;border-radius:25px;
+}
+.quick button{
+  width:58px;height:58px;border:0;border-radius:50%;
+  background:#243d49;color:#eaf5f8;cursor:pointer;font-size:22px;
+  transition:.25s;
+}
+.quick button:hover{transform:translateY(-5px) scale(1.05)}
+.quick button.green{background:#159d58}
+
+.section-title{
+  display:flex;align-items:center;gap:18px;
+  margin:55px 0 22px;
+}
+.section-title span{
+  padding:12px 30px;border-radius:20px;
+  background:#09131a;border:1px solid var(--line);
+  letter-spacing:5px;font-size:13px;font-weight:800;
+}
+.section-title::after{content:"";height:1px;background:var(--line);flex:1}
+
+.about-grid{
+  display:grid;grid-template-columns:1fr 1.25fr 170px;gap:20px;align-items:stretch;
+}
+.about-photo,.about-text,.gallery{
+  border-radius:32px;overflow:hidden;
+}
+.about-photo{min-height:370px;position:relative}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 35%;transition:transform .7s}
+.about-photo:hover img{transform:scale(1.06)}
+.about-text{padding:30px;display:flex;flex-direction:column;justify-content:center}
+.about-text h2{font-family:Oswald;font-size:36px;line-height:1;margin-bottom:20px}
+.about-text p{color:#c6d4d9;line-height:1.7;font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{padding:8px 12px;border-radius:15px;background:rgba(190,220,230,.08);font-size:11px;color:#cfe0e5}
+.gallery{padding:10px;display:flex;flex-direction:column;gap:10px}
+.gallery img{width:100%;height:160px;object-fit:cover;border-radius:23px;transition:.4s}
+.gallery img:hover{transform:scale(1.03)}
+
+.quote{
+  margin:55px auto 30px;
+  width:min(850px,90%);
+  text-align:center;
+  padding:20px 30px;
+  border-radius:30px;
+  background:#05090b;
+  letter-spacing:5px;
+  font-size:13px;font-weight:800;
+}
+
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  margin-top:25px;
+}
+.stat{padding:25px;border-radius:25px;text-align:center}
+.stat strong{display:block;font-family:Oswald;font-size:34px}
+.stat small{color:#9eb0b7}
+
+.footer{
+  text-align:center;color:#81939b;font-size:12px;padding-top:50px;
+}
+
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s,transform .8s}
+.reveal.show{opacity:1;transform:none}
+.float{animation:float 5s ease-in-out infinite}
+.pulse{animation:pulse 2.5s ease-in-out infinite}
+
+.cursor-glow{
+  position:fixed;width:180px;height:180px;border-radius:50%;
+  pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(175,222,236,.13),transparent 65%);
+  transform:translate(-50%,-50%);
+}
+
+@keyframes float{50%{transform:translateY(-10px)}}
+@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(190,225,235,.03),0 20px 55px rgba(0,0,0,.35)}}
+@keyframes ambient{to{transform:translate(3%,2%) scale(1.05)}}
+
+@media(max-width:850px){
+  .nav{gap:12px;font-size:11px}
+  .topbar{gap:10px;padding:0 15px}
+  .hero{min-height:850px}
+  .hero-main{min-height:850px}
+  .side-profile{left:12px;top:25px;width:115px}
+  .hero-content{left:135px;right:20px;top:95px;display:block}
+  .hero-photo{height:390px;width:70%;margin:auto}
+  .hero-copy{padding-top:5px}
+  .hero-copy h1{font-size:48px}
+  .toolbar{display:none}
+  .quick{right:25px;bottom:25px}
+  .about-grid{grid-template-columns:1fr}
+  .gallery{display:grid;grid-template-columns:1fr 1fr}
+  .gallery img{height:220px}
+}
+@media(max-width:600px){
+  .topbar{position:relative;top:0}
+  .nav{display:none}
+  .hero{min-height:870px}
+  .hero-main{min-height:870px}
+  .side-profile{position:absolute;left:12px;top:20px;min-height:auto;width:100px;padding:14px 8px}
+  .avatar{width:70px;height:70px;margin-bottom:10px}
+  .socials{font-size:18px;margin:8px 0}
+  .post{margin-top:10px;font-size:10px}
+  .hero-content{left:118px;right:12px;top:100px}
+  .hero-photo{width:100%;height:360px}
+  .hero-copy h1{font-size:39px;letter-spacing:-1px}
+  .hero-copy p{font-size:12px}
+  .portfolio-label{padding:10px 24px;letter-spacing:5px}
+  .about-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="cursor-glow" id="glow"></div>
+
+<div class="page">
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    <nav class="nav" id="nav">
+      <a class="active" href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#writer">WRITER</a>
+      <a href="#design">DESIGN</a>
+      <a href="#grafis">GRAFIS</a>
+      <a href="#account">ACCOUNT</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="portfolio-label reveal">PORTOFOLIO</div>
+
+    <section class="hero" id="home">
+      <div class="hero-main">
+        <div class="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+
+        <aside class="side-profile float">
+          <div class="avatar"><img src="images/gambar1.png" alt="Hamas Dhani"></div>
+          <div class="socials"><span>◎</span><span>f</span></div>
+          <div class="side-name">Hamas Dhani</div>
+          <div class="post"><span>♧</span>New Post</div>
+        </aside>
+
+        <div class="hero-content">
+          <div class="hero-photo">
+            <img src="images/736413016_17935685526292537_1341001262338290144_n.jpg" alt="Hamas Dhani portrait">
+          </div>
+
+          <div class="hero-copy">
+            <div class="eyebrow">WHAT'S UP GUYS</div>
+            <h1>HAMAS<br>DHANI</h1>
+            <p>
+              my name is Hamas Muhammad dhani, People usually call me Hamas
+              I live in Tulungagung. my hobby are
+              writing, and design.
+            </p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="tool">Aa</div><div class="tool">∞</div><div class="tool">◫</div>
+          <div class="tool">◌</div><div class="tool">⊖</div><div class="tool">▣</div>
+          <div class="tool">◎</div><div class="tool">□</div><div class="tool">⌃</div>
+        </div>
+
+        <div class="quick glass pulse">
+          <button>✈</button>
+          <button class="green">◉</button>
+          <button>⌁</button>
+          <button>♢</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <div class="section-title"><span>PENULIS</span></div>
+
+      <div class="about-grid">
+        <div class="about-photo glass">
+          <img src="images/gambar1.png" alt="Foto Nadia">
+        </div>
+
+        <article class="about-text glass">
+          <h2>INTRODUCE<br>MY SELF</h2>
+          <p>
+            Aku Hamas. lanangan nyell Tulungagung Aku menyukai dunia
+            literasi, terutama puisi. Aku selalu jatuh cinta pada bait-bait
+            yang patah, menyampaikan rindu yang paling sepi dan
+            bercengkrama dengan tenangnya malam.
+          </p>
+          <div class="tags">
+            <span class="tag">WRITER</span>
+            <span class="tag">POETRY</span>
+            <span class="tag">DESIGN</span>
+            <span class="tag">MUSIC</span>
+          </div>
+        </article>
+
+        <div class="gallery glass" id="design">
+          <img src="images/gambar1.png" alt="Galeri foto">
+          <img src="images/gambar1.png" alt="Portrait">
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="writer">
+      <div class="section-title"><span>WRITER</span></div>
+      <div class="glass" style="padding:30px;border-radius:30px">
+        <p style="color:#c8d7dc;line-height:1.8">
+          Menulis menjadi ruang untuk menyimpan hal-hal yang tidak selalu
+          bisa diucapkan. Setiap kata adalah potongan kecil dari cerita,
+          perasaan, dan perjalanan.
+        </p>
+      </div>
+    </section>
+
+    <section class="reveal" id="grafis">
+      <div class="section-title"><span>GRAFIS & DESIGN</span></div>
+      <div class="stats">
+        <div class="stat glass"><strong>∞</strong><small>Creative Ideas</small></div>
+        <div class="stat glass"><strong>50+</strong><small>Design Projects</small></div>
+        <div class="stat glass"><strong>100%</strong><small>Passion</small></div>
+      </div>
+    </section>
+
+    <div class="quote reveal">TETAP MAKAN MESKIPUN TIDAK ADA LAWUH</div>
+  </main>
+
+  <footer class="footer" id="account">
+    © <span id="year"></span> Hamas Muhammad Dhani · Personal Portfolio
+  </footer>
+</div>
+
+<script>
+const revealItems = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{threshold:.12});
+
+revealItems.forEach(el=>observer.observe(el));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const glow = document.getElementById('glow');
+window.addEventListener('pointermove',(e)=>{
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
+});
+
+document.querySelectorAll('.nav a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+
+menuBtn.addEventListener('click',()=>{
+  const visible = getComputedStyle(nav).display !== 'none';
+  if(window.innerWidth <= 850){
+    nav.style.display = visible ? 'none' : 'flex';
+    nav.style.flexWrap = 'wrap';
+  }
+});
+
+// Small parallax effect for the main portrait
+const hero = document.querySelector('.hero');
+const photo = document.querySelector('.hero-photo img');
+
+hero.addEventListener('pointermove',(e)=>{
+  const r = hero.getBoundingClientRect();
+  const x = (e.clientX-r.left)/r.width-.5;
+  const y = (e.clientY-r.top)/r.height-.5;
+  photo.style.transform = `translate(${x*8}px,${y*6}px) scale(1.02)`;
+});
+hero.addEventListener('pointerleave',()=>{
+  photo.style.transform = '';
+});
+</script>
+</body>
+</html>
